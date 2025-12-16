@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smart Sight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile friendly -->
+  <style>
+    html {
+      scroll-padding-top: 190px; /* Prevent sticky header from covering anchor targets */
+    }
+
+    body { 
+      font-family: Arial; 
+      margin: 0; 
+      background: #f4f4f4; 
+      transition: background 0.5s, color 0.5s; 
+      padding-top: 190px; 
+    }
+
+    #topbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      z-index: 9999;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header { text-align: center; padding: 20px; }
+    nav { background: #444; text-align: center; padding: 10px; }
+
+    nav a {
+      color: white; 
+      margin: 15px; 
+      text-decoration: none; 
+      font-weight: bold; 
+      transition: color 0.3s;
+      display: inline-block;
+    }
+
+    nav a:hover { 
+      text-decoration: underline; 
+      color: orange; 
+    }
+	
+    section { 
+      padding: 50px; 
+      max-width: 1000px; 
+      margin: auto; 
+      background: white; 
+      margin-top: 20px; 
+      border-radius: 10px; 
+    }
+
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+    }
+
+    th, td { 
+      padding: 10px; 
+      border: 1px solid #ddd; 
+      text-align: center; 
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: orange;
+      text-decoration: underline;
+    }
+
+    textarea, input, select { 
+      width: 100%; 
+      padding: 10px; 
+      margin-top: 10px; 
+    }
+
+
+    progress { width: 100%; height: 20px; }
+
+    blockquote { 
+      font-style: italic; 
+      color: #555; 
+      border-left: 5px solid #ccc; 
+      padding-left: 10px; 
+    }
+
+    .dark-mode { background: #222; color: #eee; }
+    .dark-mode section { background: #333; color: #eee; }
+	
+    h1, h2, h3 { animation: fadeIn 2s ease-in; }
+
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+    /* Mobile Friendly Nav */
+    @media (max-width: 500px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+	textarea {
+      width: 100%;
+      height: 600px;
+      font-family: monospace;
+      font-size: 14px;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+	footer {
+  background-color: #f4f4f4;
+  color: #000;
+  border-top: 1px solid #ccc;
+}
+
+.dark-mode footer {
+  background-color: #333;
+  color: #eee;
+}
+
+	
+  </style>
+</head>
+<body>
+
+<div id="topbar">
+  <header>
+    <h1>Smart Sight</h1>
+    
+    <button onclick="toggleDarkMode()" style="padding:10px; background:orange; color:white; border:none; cursor:pointer; border-radius:5px;">Toggle Dark / Light Mode</button>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+	<a href="#Usage">Usage</a>
+    <a href="#MR">Materials Required</a>
+    <a href="#Code">Code</a>
+    
+  </nav>
+</div>
+
+<section id="home" style="text-align:center; background:#333; color:white;">
+  <h1>Welcome to the Smart Sight project Webpage</h1>
+  <p>Click below to dive into the deep details of this project</p>
+  <a href="#Usage" style="background:red; color:white; padding:15px; text-decoration:none; border-radius:5px;">Start Exploring</a>
+</section>
+
+<section id="Usage">
+  <h3><strong>Usage</strong></h3>
+  <p>This project is mainly dedicated to the people who do not have a good eyeseight as we do.</p>
+  <p>That is why I have created these pair of glasses for the visually challenged.</p>
+  <h3><strong>Working</strong></h3>
+  <p>When the Ultrasonic sensor senses the object by the reflection of Ultrasonic waves, it then sends the signal to Arduino Nano which inturn sends it to the buzzer and vibration motor. As a result the buzzer starts beeping and the vibration motor starts vibrating. Thus, alerting the person to switch directions. </p>
+</section>
+
+<section id="MR">
+  <h2><strong>Materials Required</strong></h2>
+
+  <table>
+    <tr><th>Component</th><th>Sections</th><th>Usage/Working</th><th>Model</th></tr>
+    <tr><td>Arduino</td><td>Digital pins, Analog pins, Power Pins</td><td>Arduino is an open-source electronics platform based on easy-to-use hardware and software.It is also known as <i>'the brain of the robot'</i></td><td> NANO </tr>
+    <tr><td>Ultrasonic sensor</td><td>GND, VCC, Echo, Trig</td><td>Ultrasonic sensors are electronic devices that determine a target's distance. They work by emitting ultrasonic sound waves and converting those waves into electrical signals.</td><td>HC-SR04</tr>
+    <tr><td>Buzzer</td><td>+, -</td><td>A buzzer or beeper is an audio signaling device, which may be Mechanical, Electromechanical, or Piezoelectric (piezo for short).</td><td>Piezoelectric (piezo for short).</td></tr>
+  </table><br>
+ 
+ <h2><strong>Connections</strong></h2>
+ <h6>*The connections in a table is not recommended. to use therefore I have directly uploaded an image for your reference.</h6>
+<img src="https://rawcdn.githack.com/abdullahsami1-ctrl/Omar16Dec2025_GlassCircuit/76f3494afba212ad4bba2e6f475b116d15b76a5e/03b_GlassesCircuit.png" alt="Circuit of Automated pet feeder" width="500" height="300">
+</section>
+
+<section id="Code">
+<h1><strong>Code</strong></h1>
+<h3>Rules for the code</h3>
+<ol>
+<li>Copy and paste this code in the Arduino coding software.</li>
+<li>Connect the cable of the Arduino to the Adruino.</li>
+<li>Check the code by clicking on the Verify button(✅).</li>
+<li>Execute the code by clickin on the upload button(➡️).</li>
+</ol>
+<h4>If you want to function the project by using a battery first execute the code then connect a 9 volt battery to the other cable using a battery cap.</h4>
+<br>
+<h2>Code<h2>
+<textarea id="sightCode" readonly style="width:100%; height:600px; font-family:monospace; font-size:14px; background:#f4f4f4; color:#333; padding:10px; border:1px solid #ccc; resize:none;">
+// Pins for ultrasonic sensor
+const int TRIG_PIN = 2;   // HC-SR04 TRIG
+const int ECHO_PIN = 3;   // HC-SR04 ECHO
+
+// Output pins
+const int BUZZER_PIN   = 4;   // Active or piezo buzzer
+const int VIBRATION_PIN = 5;  // Transistor driving vibration motor
+
+long duration;
+float distance_cm;
+
+// Distance thresholds in cm (adjust as you like)
+const int FAR_DIST    = 200;   // > 50 cm : OFF
+const int MID_DIST    = 100;   // 30–50 cm : slow beep / weak vibration
+const int NEAR_DIST   = 35;    // 15–30 cm : medium
+// < 15 cm : continuous buzzer & vibration
+
+void setup() {
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(VIBRATION_PIN, OUTPUT);
+
+  digitalWrite(BUZZER_PIN, LOW);
+  digitalWrite(VIBRATION_PIN, LOW);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Trigger ultrasonic pulse (10 µs HIGH)
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  // Read echo time
+  duration = pulseIn(ECHO_PIN, HIGH, 30000); // timeout ~30 ms (~5 m)
+  if (duration == 0) {
+    // No echo (out of range) – treat as far
+    distance_cm = 999;
+  } else {
+    // Distance in cm: speed of sound ≈ 0.034 cm/µs, divide by 2 for round trip
+    distance_cm = (duration * 0.034) / 2.0;
+  }
+
+  Serial.print("Distance: ");
+  Serial.print(distance_cm);
+  Serial.println(" cm");
+
+  // Control logic based on distance
+  if (distance_cm > FAR_DIST) {
+    // Very far: everything off
+    noTone(BUZZER_PIN);
+    digitalWrite(BUZZER_PIN, LOW);
+    digitalWrite(VIBRATION_PIN, LOW);
+    delay(100);
+  }
+  else if (distance_cm > MID_DIST && distance_cm <= FAR_DIST) {
+    // Far: slow beep, short vibration pulse
+    tone(BUZZER_PIN, 1000);            // 1 kHz tone
+    digitalWrite(VIBRATION_PIN, HIGH);
+    delay(100);
+    noTone(BUZZER_PIN);
+    digitalWrite(VIBRATION_PIN, LOW);
+    delay(400);                        // slow repetition
+  }
+  else if (distance_cm > NEAR_DIST && distance_cm <= MID_DIST) {
+    // Medium: faster beep, stronger duty cycle for vibration
+    tone(BUZZER_PIN, 1500);            // higher pitch
+    digitalWrite(VIBRATION_PIN, HIGH);
+    delay(150);
+    noTone(BUZZER_PIN);
+    digitalWrite(VIBRATION_PIN, LOW);
+    delay(150);
+  }
+  else if (distance_cm > 2 && distance_cm <= NEAR_DIST) {
+    // Near: very fast beeps and vibration
+    tone(BUZZER_PIN, 2000);            // even higher pitch
+    digitalWrite(VIBRATION_PIN, HIGH);
+    delay(80);
+    noTone(BUZZER_PIN);
+    digitalWrite(VIBRATION_PIN, LOW);
+    delay(80);
+  }
+  else {
+    // Very close (< 2 cm) or invalid low reading: continuous alarm
+    tone(BUZZER_PIN, 2500);
+    digitalWrite(VIBRATION_PIN, HIGH);
+    delay(100);
+  }
+}
+</textarea>
+
+<!-- Copy Button -->
+<button onclick="copySightCode()" style="margin-top:10px; padding:10px; background:red; color:white; border:none; border-radius:5px; cursor:pointer;">
+  Copy All
+</button>
+
+<script>
+function copySightCode() {
+  var codeBox = document.getElementById("sightCode");
+  codeBox.select();
+  codeBox.setSelectionRange(0, 99999); // For mobile devices
+  navigator.clipboard.writeText(codeBox.value).then(function() {
+    alert("Smart Sight code copied to clipboard!");
+  });
+}
+</script>
+
+</section>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+</script>
+
+<section id="Finishing" style="text-align:center; background:#333; color:white;">
+  <h1>I hope you now understand how the Smart Sight project works</h1>
+  <p>If you wish to see the webpage of my <b>Smart Feeder project</b> then Click below </p>
+  <a href="C:\Users\Omar and Ali\Documents\QR_Generator\Omar\Automated pet feeder.html"><b> Click Me </b> </a>
+</section>
+<footer>
+  <div style="padding:10px; text-align:center;" id="footerContent">
+    <p>© All rights reserved</p>
+    <p><strong>By: Md Omar Abdullah, VII A</strong></p>
+  </div>
+</footer>
+
+</body>
+</html>
